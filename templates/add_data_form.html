@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" style="overflow-x: hidden; overflow-y: hidden;">
+	
+	<form action="{{ url_for('success_form')}}" method="POST">
+		{% for col in columns %}
+		<input type="text" class="form-control mb-3" placeholder="{{col}}" name="{{col}}" required>
+		{% endfor %}
+		<input type="submit" value="Submit" class="btn btn-primary m-5" style="width: 50%;">
+	</form>
+</div>
+
+{% endblock %}

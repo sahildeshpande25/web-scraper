@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link href="{{ url_for('static', filename='view.css') }}"></script>
+<script src="{{url_for('static', filename='displayTable.js')}}"></script>
+<!-- <script src="{{url_for('static', filename='search.js')}}"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("body").on("keyup", "#keyword", function() {
+    var value = $(this).val().toLowerCase();
+    console.log(value);
+    $('#mytable tr').filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+<script>
+	var data = {{ data | safe}};
+</script>
+
+<div class="col-lg-6 offset-lg-3">
+	<h1 class="text-secondary">Click on the button to view the records in our database</h1>
+	<!-- <p>You will be able to view data that has been added to our database. Data is first
+	fetched from the google spreadsheet and then  manually added by the user. For this reason,
+	always click on View Data before adding data.</p> -->
+	<button class="btn btn-primary m-3" onclick="display(data)" style="width: 80%;">View Data</button>
+</div>
+<div class="container">
+	<div id="searchbar" class="container"></div>
+	<div id="tabledata" class="container" style="overflow: scroll; height: 50vh"></div>
+</div>
+<div class="m-5"></div>
+
+{% endblock %}
+
+<!-- table table-striped table-hover -->
+<!-- style="overflow-x: scroll; overflow-y : scroll;" -->

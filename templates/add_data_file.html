@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="col-lg-6 offset-lg-3">
+		<h1 class="text-secondary">Please Select a CSV file</h1>
+		<p class="m-5">If you do not have a CSV file with the same column names,
+		you can download a sample csv below. You may click on View Data from the 
+		navigation bar to see the different column names that your file must have.</p>
+	</div>
+</div>
+
+<form action="{{ url_for('success_file') }}" method="POST" enctype="multipart/form-data">
+	<div class="input-group mb-3">
+		<div class="col-lg-4 offset-lg-4">
+			<input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="file">
+		</div>
+	</div>
+	<div class="col-lg-4 offset-lg-4">
+		<input type="submit" class="btn btn-primary" value="Upload" style="width: 100%;">
+	</div>
+</form>
+
+<div class="col-lg-4 offset-lg-4 mt-5">
+	<a href="{{ url_for('download') }}">
+		<button type="submit" class="btn btn-success" style="width: 100%;">Download Test Data</button>
+	</a>
+</div>
+
+
+{% endblock %}

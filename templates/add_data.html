@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="col-lg-6 offset-lg-3">
+		<h1 class="text-secondary">Here's how you can add your data</h1>
+		<p class="mt-5">If you choose the Via Form option, you will have to manually
+		enter all the data fields through a form and submit it. If you
+		choose the Import CSV option, you will be able to upload a CSV
+		of your choice that contains all the fields that the form requests.</p>
+
+		<p mb-5>Please note that you must first click on View Data
+		so that the data can be fetched from the google spreadsheet and then set up
+		the table in our database.</p>
+	</div>
+
+	<div class="col-lg-6 offset-lg-3" style="display: flex;">
+		<div class="col-lg-6">
+			<a href="{{ url_for('add_data_form') }}">
+				<button class="btn btn-primary" style="width: 90%;">Via Form</button>
+			</a>
+		</div>
+		<div class="col-lg-6">
+			<a href="{{ url_for('add_data_file') }}">
+				<button class="btn btn-dark" style="width: 90%;">Import CSV</button>
+			</a>
+		</div>
+	</div>
+
+</div>
+
+
+{% endblock %}

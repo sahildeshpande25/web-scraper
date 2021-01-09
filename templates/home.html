@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+	<div class="col-lg-6 offset-lg-3">
+		<h1 class="text-secondary">Welcome!</h1>
+		<p class="m-5">This product is webscraper that reads data from a given URL or 
+		file and stores it in a database. The contents of the database can
+		be retrieved by the user by clicking on View Data. To add more data
+		to the existing data or to create a new record of a person, please
+		use the Add Data option.Please note that you must first click on View Data
+		so that the data can be fetched from the google spreadsheet and then set up
+		the table in our database.</p>
+	</div>
+
+	<div class="col-lg-6 offset-lg-3" style="display: flex;">
+		<div class="col-lg-4">
+			<a href="{{ url_for('view_data') }}">
+				<button class="btn btn-primary" style="width: 90%;">View Data</button>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a href="{{ url_for('add_data') }}">
+				<button class="btn btn-dark" style="width: 90%;">Add Data</button>
+			</a>
+		</div>
+		<div class="col-lg-4">
+			<a href="https://www.linkedin.com/in/sahildeshpande25/" target="_blank">
+				<button class="btn btn-warning" style="width: 90%;">About Us</button>
+			</a>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}
